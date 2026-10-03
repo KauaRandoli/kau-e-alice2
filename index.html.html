@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💗 Para Alice, com amor 💗</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rosa-claro: #ffb6c1;
+            --rosa: #ff69b4;
+            --rosa-escuro: #ff1493;
+            --rosa-neon: #ff007f;
+            --preto: #0a0a0a;
+            --preto-suave: #1a1a1a;
+            --preto-card: #141414;
+            --branco: #fff0f5;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--preto);
+            color: var(--branco);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* ===== FLOATING HEARTS BACKGROUND ===== */
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .heart-float {
+            position: absolute;
+            bottom: -60px;
+            font-size: 20px;
+            animation: floatUp linear infinite;
+            opacity: 0.15;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.15;
+            }
+            90% {
+                opacity: 0.15;
+            }
+            100% {
+                transform: translateY(-110vh) rotate(720deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* ===== MUSIC TOGGLE ===== */
+        .music-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 105, 180, 0.2);
+            border: 1px solid var(--rosa);
+            color: var(--rosa);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .music-toggle:hover {
+            background: rgba(255, 105, 180, 0.4);
+            transform: scale(1.1);
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 0;
+            z-index: 999;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 105, 180, 0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--rosa-claro);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--rosa);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--rosa);
+            text-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(255, 20, 147, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-heart {
+            font-size: 4rem;
+            animation: pulse 1.5s ease-in-out infinite;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 30px rgba(255, 105, 180, 0.6));
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .hero h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3rem, 8vw, 6rem);
+            background: linear-gradient(135deg, var(--rosa-claro), var(--rosa), var(--rosa-escuro));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .hero .subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--rosa-claro);
+            opacity: 0.8;
+            animation: fadeInUp 1.5s ease-out 0.3s both;
+        }
+
+        .hero .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin-top: 30px;
+            animation: fadeInUp 1.5s ease-out 0.6s both;
+        }
+
+        .hero .names span {
+            color: var(--rosa);
+            text-shadow: 0 0 30px rgba(255, 105, 180, 0.4);
+        }
+
+        .hero .names .heart-between {
+            display: inline-block;
+            color: var(--rosa-escuro);
+            margin: 0 15px;
+            animation: pulse 1.5s ease-in-out infinite;
+            font-style: normal;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            animation: bounce 2s infinite;
+            font-size: 1.5rem;
+            color: var(--rosa);
+            opacity: 0.6;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== SECTION STYLES ===== */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-align: center;
+            color: var(--rosa);
+            margin-bottom: 15px;
+            text-shadow: 0 0 30px rgba(255, 105, 180, 0.3);
+        }
+
+        .section-divider {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            opacity: 0.4;
+            letter-spacing: 10px;
+        }
+
+        /* ===== COUNTER SECTION ===== */
+        .counter-section {
+            background: linear-gradient(180deg, transparent, rgba(255, 20, 147, 0.03), transparent);
+        }
+
+        .counter-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .counter-box {
+            background: linear-gradient(145deg, rgba(255, 105, 180, 0.08), rgba(20, 20, 20, 0.9));
+            border: 1px solid rgba(255, 105, 180, 0.15);
+            border-radius: 20px;
+            padding: 30px 25px;
+            min-width: 130px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+        }
+
+        .counter-box:hover {
+            transform: translateY(-8px);
+            border-color: var(--rosa);
+            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.15);
+        }
+
+        .counter-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--rosa-claro), var(--rosa-escuro));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .counter-label {
+            font-size: 0.85rem;
+            color: var(--rosa-claro);
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 8px;
+        }
+
+        .counter-date {
+            text-align: center;
+            margin-top: 30px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            color: var(--rosa-claro);
+            opacity: 0.6;
+        }
+
+        /* ===== GALLERY SECTION ===== */
+        .gallery-section {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 0 20px;
+        }
+
+        .gallery-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--preto-card);
+            border: 1px solid rgba(255, 105, 180, 0.1);
+            transition: all 0.5s ease;
+            cursor: pointer;
+            group: true;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--rosa);
+            box-shadow: 0 20px 50px rgba(255, 105, 180, 0.2);
+        }
+
+        .gallery-card .photo-placeholder {
+            width: 100%;
+            height: 360px;
+            background: #121212;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-card .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: block;
+        }
+
+        .gallery-card:hover .photo-placeholder img {
+            transform: scale(1.08);
+        }
+
+        .gallery-card .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 40%, rgba(10, 10, 10, 0.8) 100%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 20px;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+        .gallery-card:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        .gallery-card .photo-overlay span {
+            background: rgba(255, 105, 180, 0.85);
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            transform: translateY(10px);
+            transition: transform 0.35s ease;
+        }
+
+        .gallery-card:hover .photo-overlay span {
+            transform: translateY(0);
+        }
+
+        .gallery-card .card-caption {
+            padding: 20px;
+            text-align: center;
+            background: var(--preto-card);
+        }
+
+        .gallery-card .card-caption h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            color: var(--rosa);
+            margin-bottom: 5px;
+        }
+
+        .gallery-card .card-caption p {
+            font-size: 0.85rem;
+            color: var(--rosa-claro);
+            opacity: 0.7;
+        }
+
+        /* ===== LIGHTBOX MODAL ===== */
+        .lightbox-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.94);
+            backdrop-filter: blur(15px);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 82vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 72vh;
+            object-fit: contain;
+            border-radius: 14px;
+            box-shadow: 0 0 50px rgba(255, 105, 180, 0.35), 0 25px 60px rgba(0, 0, 0, 0.9);
+            border: 1px solid rgba(255, 105, 180, 0.3);
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.92); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .lightbox-caption {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .lightbox-caption h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: var(--rosa);
+        }
+
+        .lightbox-caption p {
+            font-size: 0.95rem;
+            color: var(--rosa-claro);
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: rgba(255, 105, 180, 0.2);
+            border: 1px solid var(--rosa);
+            color: #fff;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10001;
+        }
+
+        .lightbox-close:hover {
+            background: var(--rosa);
+            transform: scale(1.1);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 105, 180, 0.2);
+            border: 1px solid var(--rosa);
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .lightbox-nav:hover {
+            background: var(--rosa);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-prev {
+            left: 30px;
+        }
+
+        .lightbox-next {
+            right: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.3rem;
+            }
+            .lightbox-prev { left: 10px; }
+            .lightbox-next { right: 10px; }
+            .lightbox-close { top: 15px; right: 15px; }
+            .gallery-card .photo-placeholder { height: 320px; }
+        }
+
+        /* ===== COISAS QUE AMO SECTION ===== */
+        .love-reasons-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .reasons-intro {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            color: var(--rosa-claro);
+            opacity: 0.8;
+            margin-top: -30px;
+            margin-bottom: 45px;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 0 10px;
+            perspective: 1000px;
+        }
+
+        .reason-card {
+            height: 250px;
+            cursor: pointer;
+            perspective: 1000px;
+            background: transparent;
+        }
+
+        .reason-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .reason-card.flipped .reason-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .reason-card:hover:not(.flipped) .reason-card-inner {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(255, 105, 180, 0.25);
+        }
+
+        .reason-card-front, .reason-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        .reason-card-front {
+            background: linear-gradient(145deg, rgba(255, 105, 180, 0.08), rgba(20, 20, 20, 0.95));
+            border: 1px solid rgba(255, 105, 180, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .reason-card-front .reason-emoji {
+            font-size: 3.2rem;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 0 15px rgba(255, 105, 180, 0.4));
+            transition: transform 0.3s ease;
+        }
+
+        .reason-card:hover .reason-card-front .reason-emoji {
+            transform: scale(1.15);
+        }
+
+        .reason-card-front .reason-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--branco);
+            margin-bottom: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .reason-card-front .reason-hint {
+            font-size: 0.75rem;
+            color: var(--rosa);
+            opacity: 0.85;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            background: rgba(255, 105, 180, 0.12);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 105, 180, 0.25);
+            transition: all 0.3s;
+        }
+
+        .reason-card:hover .reason-card-front .reason-hint {
+            background: rgba(255, 105, 180, 0.3);
+            color: #fff;
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.4);
+        }
+
+        .reason-card-back {
+            background: linear-gradient(145deg, rgba(255, 20, 147, 0.2), rgba(24, 14, 20, 0.98));
+            border: 1px solid var(--rosa);
+            transform: rotateY(180deg);
+            box-shadow: 0 0 35px rgba(255, 105, 180, 0.3);
+            justify-content: space-between;
+        }
+
+        .reason-card-back .back-emoji {
+            font-size: 1.6rem;
+            opacity: 0.9;
+        }
+
+        .reason-card-back h4 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.45rem;
+            color: var(--rosa);
+            margin: 2px 0 6px;
+        }
+
+        .reason-card-back p {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: var(--branco);
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .reason-card-back .back-tag {
+            font-size: 0.72rem;
+            color: var(--rosa-claro);
+            letter-spacing: 0.5px;
+            font-style: italic;
+            margin-top: 6px;
+            opacity: 0.85;
+        }
+
+        /* ===== LOVE LETTER SECTION ===== */
+        .love-section {
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .love-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 20, 147, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .love-envelope {
+            max-width: 650px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, rgba(255, 105, 180, 0.06), rgba(20, 20, 20, 0.95));
+            border: 1px solid rgba(255, 105, 180, 0.15);
+            border-radius: 30px;
+            padding: 60px 40px;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .love-envelope::before {
+            content: '💌';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+        }
+
+        .love-message {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            background: linear-gradient(135deg, var(--rosa-claro), var(--rosa), var(--rosa-escuro), var(--rosa-neon));
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease-in-out infinite;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes musicBtnGlow {
+            0%, 100% { box-shadow: 0 0 30px rgba(255, 105, 180, 0.15); }
+            50% { box-shadow: 0 0 45px rgba(255, 105, 180, 0.3); }
+        }
+
+        .love-from {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            color: var(--rosa-claro);
+            opacity: 0.7;
+        }
+
+        .love-hearts {
+            margin-top: 30px;
+            font-size: 1.5rem;
+            letter-spacing: 10px;
+            opacity: 0.5;
+        }
+
+        /* ===== EU TE AMO / LOVE WALL SECTION ===== */
+        .te-amo-container {
+            width: 100%;
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .marquee-wrapper {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            overflow: hidden;
+            position: relative;
+            padding: 10px 0;
+            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            gap: 20px;
+            animation: marqueeLeft 30s linear infinite;
+        }
+
+        .marquee-track.reverse {
+            animation: marqueeRight 35s linear infinite;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        .marquee-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 24px;
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.12), rgba(20, 20, 20, 0.8));
+            border: 1px solid rgba(255, 105, 180, 0.25);
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--rosa-claro);
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            user-select: none;
+        }
+
+        .marquee-badge:hover {
+            background: rgba(255, 105, 180, 0.28);
+            border-color: var(--rosa);
+            color: #fff;
+            transform: scale(1.06);
+            box-shadow: 0 0 25px rgba(255, 105, 180, 0.4);
+        }
+
+        @keyframes marqueeLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes marqueeRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        .love-wall-box {
+            max-width: 900px;
+            margin: 45px auto 0;
+            padding: 45px 30px;
+            background: linear-gradient(145deg, rgba(255, 105, 180, 0.08), rgba(20, 20, 20, 0.95));
+            border: 1px solid rgba(255, 105, 180, 0.25);
+            border-radius: 30px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 105, 180, 0.12);
+            text-align: center;
+        }
+
+        .love-wall-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            color: var(--rosa);
+            margin-bottom: 8px;
+            text-shadow: 0 0 30px rgba(255, 105, 180, 0.4);
+        }
+
+        .love-tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 30px 0 35px;
+        }
+
+        .love-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 18px;
+            background: rgba(255, 105, 180, 0.08);
+            border: 1px solid rgba(255, 105, 180, 0.2);
+            border-radius: 25px;
+            color: var(--branco);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: default;
+            user-select: none;
+        }
+
+        .love-tag:hover {
+            background: rgba(255, 105, 180, 0.25);
+            border-color: var(--rosa);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+            color: #fff;
+        }
+
+        .love-tag.special {
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.22), rgba(255, 20, 147, 0.15));
+            border-color: var(--rosa);
+            font-weight: 600;
+            color: var(--rosa-claro);
+        }
+
+        .love-btn-wrapper {
+            margin-top: 20px;
+        }
+
+        .love-counter-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: linear-gradient(135deg, var(--rosa), var(--rosa-escuro));
+            border: none;
+            border-radius: 50px;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(255, 105, 180, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .love-counter-btn:hover {
+            transform: scale(1.06);
+            box-shadow: 0 12px 40px rgba(255, 105, 180, 0.6);
+        }
+
+        .love-counter-btn:active {
+            transform: scale(0.96);
+        }
+
+        .love-counter-text {
+            font-size: 0.9rem;
+            color: var(--rosa-claro);
+            margin-top: 15px;
+            opacity: 0.85;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .love-counter-text span {
+            color: var(--rosa);
+            font-weight: 700;
+            font-size: 1.15rem;
+        }
+
+        .floating-love-bubble {
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--rosa-claro);
+            text-shadow: 0 0 15px rgba(255, 20, 147, 0.8), 0 0 30px rgba(255, 105, 180, 0.6);
+            animation: floatLoveAnim 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            white-space: nowrap;
+        }
+
+        @keyframes floatLoveAnim {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, 0) scale(0.5);
+            }
+            20% {
+                opacity: 1;
+                transform: translate(-50%, -25px) scale(1.15);
+            }
+            80% {
+                opacity: 0.9;
+                transform: translate(-50%, -90px) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -150px) scale(0.8);
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255, 105, 180, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            font-family: 'Dancing Script', cursive;
+            color: var(--rosa-claro);
+            opacity: 0.5;
+            font-size: 1rem;
+        }
+
+        footer .footer-heart {
+            font-size: 1.5rem;
+            display: inline-block;
+            animation: pulse 1.5s ease-in-out infinite;
+            margin: 0 5px;
+        }
+
+        /* ===== SCROLL REVEAL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== SPARKLE CURSOR ===== */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            font-size: 12px;
+            z-index: 9999;
+            animation: sparkleAnim 1s ease-out forwards;
+        }
+
+        @keyframes sparkleAnim {
+            0% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0) translateY(-40px);
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 20px;
+            }
+
+            nav a {
+                font-size: 0.75rem;
+                letter-spacing: 1px;
+            }
+
+            .counter-container {
+                gap: 15px;
+            }
+
+            .counter-box {
+                min-width: 100px;
+                padding: 20px 15px;
+            }
+
+            .counter-number {
+                font-size: 2.2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .love-envelope {
+                padding: 40px 25px;
+            }
+
+            .music-toggle {
+                top: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                gap: 12px;
+            }
+
+            .counter-container {
+                gap: 10px;
+            }
+
+            .counter-box {
+                min-width: 70px;
+                padding: 15px 10px;
+                border-radius: 15px;
+            }
+
+            .counter-number {
+                font-size: 1.8rem;
+            }
+
+            .counter-label {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#tempo">Nosso Tempo</a></li>
+            <li><a href="#momentos">Momentos</a></li>
+            <li><a href="#coisas-que-amo">O Que Amo</a></li>
+            <li><a href="#musica">Música</a></li>
+            <li><a href="#amor">Amor</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-heart">💗</div>
+        <h1>Para Você, Alice</h1>
+        <p class="subtitle">Uma página feita com todo o meu amor...</p>
+        <p class="names">
+            <span>Kauã</span>
+            <em class="heart-between">♥</em>
+            <span>Alice</span>
+        </p>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <!-- Counter Section -->
+    <section class="counter-section" id="tempo">
+        <h2 class="section-title reveal">Nosso Tempo Juntos</h2>
+        <div class="section-divider reveal">♡ ♡ ♡</div>
+
+        <div class="counter-container reveal">
+            <div class="counter-box">
+                <span class="counter-number" id="years">0</span>
+                <span class="counter-label">Anos</span>
+            </div>
+            <div class="counter-box">
+                <span class="counter-number" id="months">0</span>
+                <span class="counter-label">Meses</span>
+            </div>
+            <div class="counter-box">
+                <span class="counter-number" id="days">0</span>
+                <span class="counter-label">Dias</span>
+            </div>
+            <div class="counter-box">
+                <span class="counter-number" id="hours">0</span>
+                <span class="counter-label">Horas</span>
+            </div>
+        </div>
+
+        <p class="counter-date reveal">Desde 17 de Setembro de 2026 💕</p>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="momentos">
+        <h2 class="section-title reveal">Nossos Momentos</h2>
+        <div class="section-divider reveal">♡ ♡ ♡</div>
+
+        <div class="gallery-grid">
+            <div class="gallery-card reveal" onclick="openLightbox(0)">
+                <div class="photo-placeholder">
+                    <img src="Nossa%20primeira%20conversa.jpeg" alt="Nossa primeira conversa" loading="lazy">
+                    <div class="photo-overlay">
+                        <span>🔍 Ver foto</span>
+                    </div>
+                </div>
+                <div class="card-caption">
+                    <h3>Nossa Primeira Conversa</h3>
+                    <p>O dia em que tudo começou ✨</p>
+                </div>
+            </div>
+
+            <div class="gallery-card reveal" onclick="openLightbox(1)">
+                <div class="photo-placeholder">
+                    <img src="eu%20tatuado%20alice.jpeg" alt="Eu tatuado alice" loading="lazy">
+                    <div class="photo-overlay">
+                        <span>🔍 Ver foto</span>
+                    </div>
+                </div>
+                <div class="card-caption">
+                    <h3>Eu Tatuado Alice</h3>
+                    <p>Minha tatuagem com seu nome 🌟</p>
+                </div>
+            </div>
+
+            <div class="gallery-card reveal" onclick="openLightbox(2)">
+                <div class="photo-placeholder">
+                    <img src="tatuagem%20da%20alice.jpeg" alt="Tatuagem da alice" loading="lazy">
+                    <div class="photo-overlay">
+                        <span>🔍 Ver foto</span>
+                    </div>
+                </div>
+                <div class="card-caption">
+                    <h3>Tatuagem da Alice</h3>
+                    <p>Meu nome no seu braço 🌹</p>
+                </div>
+            </div>
+
+            <div class="gallery-card reveal" onclick="openLightbox(3)">
+                <div class="photo-placeholder">
+                    <img src="sorriso%20da%20alice.jpeg" alt="Sorriso da alice" loading="lazy">
+                    <div class="photo-overlay">
+                        <span>🔍 Ver foto</span>
+                    </div>
+                </div>
+                <div class="card-caption">
+                    <h3>Sorriso da Alice</h3>
+                    <p>Amo seu sorriso apaixonante 💗</p>
+                </div>
+            </div>
+
+            <div class="gallery-card reveal" onclick="openLightbox(4)">
+                <div class="photo-placeholder">
+                    <img src="alice%20e%20filha.jpeg" alt="Alice e filha" loading="lazy">
+                    <div class="photo-overlay">
+                        <span>🔍 Ver foto</span>
+                    </div>
+                </div>
+                <div class="card-caption">
+                    <h3>Alice e Filha</h3>
+                    <p>Os maiores amores da minha vida 💕</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coisas que amo em você Section -->
+    <section class="love-reasons-section" id="coisas-que-amo">
+        <h2 class="section-title reveal">Coisas que amo em você</h2>
+        <div class="section-divider reveal">♡ ♡ ♡</div>
+        <p class="reasons-intro reveal">
+            Clique em cada cartão para descobrir o motivo... ✨
+        </p>
+
+        <div class="reasons-grid">
+            <!-- Card 1: Seu Sorriso -->
+            <div class="reason-card reveal" onclick="toggleReason(this)">
+                <div class="reason-card-inner">
+                    <div class="reason-card-front">
+                        <div class="reason-emoji">❤️</div>
+                        <h3 class="reason-title">Seu sorriso</h3>
+                        <span class="reason-hint">Toque para ver 💌</span>
+                    </div>
+                    <div class="reason-card-back">
+                        <span class="back-emoji">❤️</span>
+                        <h4>Seu sorriso</h4>
+                        <p>Ilumina qualquer dia ruim. Quando você sorri pra mim, o mundo inteiro parece entrar em harmonia e meu coração se enche de paz.</p>
+                        <span class="back-tag">Meu motivo favorito de sorrir ♡</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Seu Jeito -->
+            <div class="reason-card reveal" onclick="toggleReason(this)">
+                <div class="reason-card-inner">
+                    <div class="reason-card-front">
+                        <div class="reason-emoji">🥰</div>
+                        <h3 class="reason-title">Seu jeito</h3>
+                        <span class="reason-hint">Toque para ver 💌</span>
+                    </div>
+                    <div class="reason-card-back">
+                        <span class="back-emoji">🥰</span>
+                        <h4>Seu jeito</h4>
+                        <p>Único, autêntico e apaixonante. Sua doçura, sua força e até suas manias são o que fazem você ser a mulher mais especial da minha vida.</p>
+                        <span class="back-tag">Perfeita do jeitinho que é ♡</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Seu Senso de Humor -->
+            <div class="reason-card reveal" onclick="toggleReason(this)">
+                <div class="reason-card-inner">
+                    <div class="reason-card-front">
+                        <div class="reason-emoji">😂</div>
+                        <h3 class="reason-title">Seu senso de humor</h3>
+                        <span class="reason-hint">Toque para ver 💌</span>
+                    </div>
+                    <div class="reason-card-back">
+                        <span class="back-emoji">😂</span>
+                        <h4>Seu senso de humor</h4>
+                        <p>Nossas risadas bobas e as brincadeiras que só nós dois entendemos. Não tem remédio melhor pra alma do que rir ao seu lado até doer a bochecha.</p>
+                        <span class="back-tag">Minha melhor risada ♡</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: O Jeito que Você Fala Comigo -->
+            <div class="reason-card reveal" onclick="toggleReason(this)">
+                <div class="reason-card-inner">
+                    <div class="reason-card-front">
+                        <div class="reason-emoji">🫶</div>
+                        <h3 class="reason-title">O jeito que você fala comigo</h3>
+                        <span class="reason-hint">Toque para ver 💌</span>
+                    </div>
+                    <div class="reason-card-back">
+                        <span class="back-emoji">🫶</span>
+                        <h4>O jeito que você fala comigo</h4>
+                        <p>O carinho no seu tom de voz, o cuidado com as palavras e a atenção quando você fala comigo fazem eu me sentir a pessoa mais querida desse mundo.</p>
+                        <span class="back-tag">Acalma meu coração ♡</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: Seu Olhar -->
+            <div class="reason-card reveal" onclick="toggleReason(this)">
+                <div class="reason-card-inner">
+                    <div class="reason-card-front">
+                        <div class="reason-emoji">👀</div>
+                        <h3 class="reason-title">Seu olhar</h3>
+                        <span class="reason-hint">Toque para ver 💌</span>
+                    </div>
+                    <div class="reason-card-back">
+                        <span class="back-emoji">👀</span>
+                        <h4>Seu olhar</h4>
+                        <p>O brilho dos seus olhos quando me encara me desmonta completamente. Consigo enxergar toda a pureza, cumplicidade e amor que temos um pelo outro.</p>
+                        <span class="back-tag">Sincero e apaixonante ♡</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6: Seu Carinho -->
+            <div class="reason-card reveal" onclick="toggleReason(this)">
+                <div class="reason-card-inner">
+                    <div class="reason-card-front">
+                        <div class="reason-emoji">💗</div>
+                        <h3 class="reason-title">Seu carinho</h3>
+                        <span class="reason-hint">Toque para ver 💌</span>
+                    </div>
+                    <div class="reason-card-back">
+                        <span class="back-emoji">💗</span>
+                        <h4>Seu carinho</h4>
+                        <p>Seus abraços apertados, seu chamego e seu afeto diário. Estar com você é encontrar paz e ter a certeza de que meu lar é ao seu lado.</p>
+                        <span class="back-tag">O meu porto seguro ♡</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Section -->
+    <section class="love-section" id="musica" style="padding: 80px 20px;">
+        <h2 class="section-title reveal">Eu te dedico essa musica</h2>
+        <div class="section-divider reveal">♪ ♫ ♪</div>
+
+        <div class="reveal" style="text-align: center; max-width: 500px; margin: 0 auto;">
+            <p style="font-family: 'Dancing Script', cursive; font-size: 1.2rem; color: var(--rosa-claro); opacity: 0.7; margin-bottom: 12px;">
+                Uma música especial que escolhi pensando em você...
+            </p>
+            <p style="font-size: 1.05rem; color: var(--rosa); margin-bottom: 25px; font-weight: 600; letter-spacing: 0.5px;">
+                🎵 AI CALICA (feat. LEALL) — pumapjl
+            </p>
+
+            <a href="musica.html" style="
+                display: inline-flex;
+                align-items: center;
+                gap: 12px;
+                padding: 18px 40px;
+                background: linear-gradient(135deg, rgba(255, 105, 180, 0.15), rgba(255, 20, 147, 0.08));
+                border: 1px solid var(--rosa);
+                border-radius: 50px;
+                color: var(--rosa-claro);
+                text-decoration: none;
+                font-family: 'Poppins', sans-serif;
+                font-size: 1.1rem;
+                font-weight: 500;
+                letter-spacing: 1px;
+                transition: all 0.4s ease;
+                position: relative;
+                overflow: hidden;
+                box-shadow: 0 0 30px rgba(255, 105, 180, 0.15);
+                animation: musicBtnGlow 2s ease-in-out infinite;
+            " onmouseover="this.style.background='linear-gradient(135deg, rgba(255, 105, 180, 0.3), rgba(255, 20, 147, 0.2))'; this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 50px rgba(255, 105, 180, 0.35)'"
+               onmouseout="this.style.background='linear-gradient(135deg, rgba(255, 105, 180, 0.15), rgba(255, 20, 147, 0.08))'; this.style.transform='scale(1)'; this.style.boxShadow='0 0 30px rgba(255, 105, 180, 0.15)'">
+                <span style="font-size: 1.5rem;">🎧</span>
+                Ouvir Nossa Música
+                <span style="font-size: 1.5rem;">💗</span>
+            </a>
+
+            <p style="margin-top: 20px; font-size: 0.8rem; color: var(--rosa-claro); opacity: 0.4;">
+                Clique para abrir o player especial 🎵
+            </p>
+        </div>
+    </section>
+
+    <!-- Love Message Section -->
+    <section class="love-section" id="amor">
+        <h2 class="section-title reveal">Do Fundo do Meu Coração</h2>
+        <div class="section-divider reveal">♡ ♡ ♡</div>
+
+        <div class="love-envelope reveal">
+            <p class="love-message">Eu Te Amo, Alice!</p>
+            <p class="love-from">Com todo o meu amor, Kauã 💗</p>
+            <div class="love-hearts">💗 💗 💗</div>
+        </div>
+
+        <!-- Marquee de Vários Eu Te Amo -->
+        <div class="te-amo-container reveal">
+            <!-- Row 1: Marquee normal -->
+            <div class="marquee-wrapper">
+                <div class="marquee-track">
+                    <span class="marquee-badge">Eu te amo, Alice! 💗</span>
+                    <span class="marquee-badge">Eu te amo daqui até o infinito ♾️</span>
+                    <span class="marquee-badge">Eu te amo ontem, hoje e pra sempre 💍</span>
+                    <span class="marquee-badge">Eu te amo mais que tudo 💕</span>
+                    <span class="marquee-badge">Eu te amo meu amor todinho 💖</span>
+                    <span class="marquee-badge">Eu te amo com toda minha alma 🌹</span>
+                    <span class="marquee-badge">Eu te amo em cada detalhe ✨</span>
+                    <span class="marquee-badge">Eu te amo daqui até a lua 🌙</span>
+                    <span class="marquee-badge">Eu te amo sem medidas 💘</span>
+                    <span class="marquee-badge">Eu te amo mil milhões 🥰</span>
+                    <!-- Duplicate for infinite loop -->
+                    <span class="marquee-badge">Eu te amo, Alice! 💗</span>
+                    <span class="marquee-badge">Eu te amo daqui até o infinito ♾️</span>
+                    <span class="marquee-badge">Eu te amo ontem, hoje e pra sempre 💍</span>
+                    <span class="marquee-badge">Eu te amo mais que tudo 💕</span>
+                    <span class="marquee-badge">Eu te amo meu amor todinho 💖</span>
+                    <span class="marquee-badge">Eu te amo com toda minha alma 🌹</span>
+                    <span class="marquee-badge">Eu te amo em cada detalhe ✨</span>
+                    <span class="marquee-badge">Eu te amo daqui até a lua 🌙</span>
+                    <span class="marquee-badge">Eu te amo sem medidas 💘</span>
+                    <span class="marquee-badge">Eu te amo mil milhões 🥰</span>
+                </div>
+            </div>
+
+            <!-- Row 2: Marquee reverse -->
+            <div class="marquee-wrapper" style="margin-top: 10px;">
+                <div class="marquee-track reverse">
+                    <span class="marquee-badge">Eu te amo a cada batida do coração 💓</span>
+                    <span class="marquee-badge">Eu te amo mais do que as palavras dizem 💌</span>
+                    <span class="marquee-badge">Eu te amo minha princesa 👑</span>
+                    <span class="marquee-badge">Eu te amo nos dias bons e difíceis 🤍</span>
+                    <span class="marquee-badge">Eu te amo por quem você é 💞</span>
+                    <span class="marquee-badge">Eu te amo hoje mais do que ontem 🌸</span>
+                    <span class="marquee-badge">Eu te amo e sempre vou te escolher 💫</span>
+                    <span class="marquee-badge">Eu te amo sem fim e sem limites 🩷</span>
+                    <span class="marquee-badge">Eu te amo tanto tanto tanto 🎀</span>
+                    <span class="marquee-badge">Eu te amo além da vida 🌟</span>
+                    <!-- Duplicate for infinite loop -->
+                    <span class="marquee-badge">Eu te amo a cada batida do coração 💓</span>
+                    <span class="marquee-badge">Eu te amo mais do que as palavras dizem 💌</span>
+                    <span class="marquee-badge">Eu te amo minha princesa 👑</span>
+                    <span class="marquee-badge">Eu te amo nos dias bons e difíceis 🤍</span>
+                    <span class="marquee-badge">Eu te amo por quem você é 💞</span>
+                    <span class="marquee-badge">Eu te amo hoje mais do que ontem 🌸</span>
+                    <span class="marquee-badge">Eu te amo e sempre vou te escolher 💫</span>
+                    <span class="marquee-badge">Eu te amo sem fim e sem limites 🩷</span>
+                    <span class="marquee-badge">Eu te amo tanto tanto tanto 🎀</span>
+                    <span class="marquee-badge">Eu te amo além da vida 🌟</span>
+                </div>
+            </div>
+
+            <!-- Mural de Declarações -->
+            <div class="love-wall-box">
+                <h3 class="love-wall-title">Infinitos "Eu Te Amo"</h3>
+                <p style="font-family: 'Dancing Script', cursive; font-size: 1.3rem; color: var(--rosa-claro); opacity: 0.85; margin-bottom: 25px;">
+                    Pra você nunca esquecer o quanto é o amor da minha vida... ♡
+                </p>
+
+                <div class="love-tags-cloud">
+                    <span class="love-tag special">Eu te amo, Alice! 💗</span>
+                    <span class="love-tag">Eu te amo muito 💕</span>
+                    <span class="love-tag">Eu te amo demais 🥰</span>
+                    <span class="love-tag special">Eu te amo infinitamente ♾️</span>
+                    <span class="love-tag">Eu te amo para todo o sempre 💍</span>
+                    <span class="love-tag">Eu te amo de janeiro a janeiro 🗓️</span>
+                    <span class="love-tag">Eu te amo em cada respirar 🌸</span>
+                    <span class="love-tag">Eu te amo nos pequenos gestos 🫶</span>
+                    <span class="love-tag special">Eu te amo com todo o meu ser 💘</span>
+                    <span class="love-tag">Eu te amo sem explicação 💖</span>
+                    <span class="love-tag">Eu te amo com a força do universo 🌌</span>
+                    <span class="love-tag">Eu te amo meu amor todinho 💓</span>
+                    <span class="love-tag special">Eu te amo minha vida 🌹</span>
+                    <span class="love-tag">Eu te amo minha paz 🕊️</span>
+                    <span class="love-tag">Eu te amo daqui até o infinito 🚀</span>
+                    <span class="love-tag">Eu te amo meu bem mais precioso 💎</span>
+                    <span class="love-tag special">Eu te amo cada segundo mais ⏳</span>
+                    <span class="love-tag">Eu te amo minha razão de viver 👑</span>
+                    <span class="love-tag">Eu te amo hoje, amanhã e sempre ✨</span>
+                    <span class="love-tag">I love you 🇺🇸</span>
+                    <span class="love-tag">Je t'aime 🇫🇷</span>
+                    <span class="love-tag">Ti amo 🇮🇹</span>
+                    <span class="love-tag">Te amo 🇪🇸</span>
+                    <span class="love-tag">Ich liebe dich 🇩🇪</span>
+                    <span class="love-tag">Aishiteru (愛してる) 🇯🇵</span>
+                    <span class="love-tag">Saranghae (사랑해) 🇰🇷</span>
+                </div>
+
+                <!-- Cascata / Repetição de Eu Te Amo -->
+                <div class="love-repeat-box" style="
+                    background: rgba(255, 105, 180, 0.04);
+                    border: 1px dashed rgba(255, 105, 180, 0.25);
+                    border-radius: 20px;
+                    padding: 25px 20px;
+                    margin: 30px 0;
+                    font-family: 'Dancing Script', cursive;
+                    font-size: 1.35rem;
+                    line-height: 2.2;
+                    color: var(--rosa-claro);
+                    letter-spacing: 2px;
+                    text-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
+                    user-select: none;
+                ">
+                    Eu te amo 💗 Eu te amo 💕 Eu te amo 💖 Eu te amo 💘 Eu te amo 💓 Eu te amo 💞 Eu te amo 💗 Eu te amo 💕 Eu te amo 💖 Eu te amo 💘 Eu te amo 💓 Eu te amo 💞 Eu te amo 💗 Eu te amo 💕 Eu te amo 💖 Eu te amo 💘 Eu te amo 💓 Eu te amo 💞 Eu te amo 💗 Eu te amo 💕 Eu te amo 💖 Eu te amo 💘 Eu te amo 💓 Eu te amo 💞 Eu te amo 💗 Eu te amo 💕 Eu te amo 💖 Eu te amo 💘 Eu te amo 💓 Eu te amo 💞 Eu te amo 💗 Eu te amo 💕 Eu te amo 💖 Eu te amo 💘 Eu te amo 💓 Eu te amo 💞 Eu te amo 💗 Eu te amo 💕 Eu te amo 💖 Eu te amo 💘 Eu te amo 💓 Eu te amo 💞 Eu te amo 💗 Eu te amo 💕 Eu te amo 💖 Eu te amo 💘 Eu te amo 💓 Eu te amo 💞 Eu te amo 💗 Eu te amo 💕 Eu te amo 💖 Eu te amo 💘 Eu te amo 💓 Eu te amo 💞 Eu te amo 💗 Eu te amo 💕 Eu te amo 💖 Eu te amo 💘 Eu te amo 💓 Eu te amo 💞 Eu te amo 💗 Eu te amo 💕 Eu te amo 💖 Eu te amo 💘 Eu te amo 💓 Eu te amo 💞 Eu te amo 💗 Eu te amo 💕 Eu te amo 💖 Eu te amo 💘 Eu te amo 💓 Eu te amo 💞 Eu te amo 💗 Eu te amo 💕 Eu te amo 💖 Eu te amo 💘 Eu te amo 💓 Eu te amo 💞 Eu te amo 💗 Eu te amo 💕 Eu te amo 💖 Eu te amo 💘 Eu te amo 💓 Eu te amo 💞 Eu te amo 💗 Eu te amo 💕 Eu te amo 💖 Eu te amo 💘 Eu te amo 💓 Eu te amo 💞 Eu te amo 💗 Eu te amo 💕 Eu te amo 💖 Eu te amo 💘 Eu te amo 💓 Eu te amo 💞
+                </div>
+
+                <!-- Botão Interativo de Amor -->
+                <div class="love-btn-wrapper">
+                    <button class="love-counter-btn" id="spawnLoveBtn" type="button">
+                        💖 Clique aqui para receber um "Eu Te Amo"
+                    </button>
+                    <p class="love-counter-text" id="loveCounterText">
+                        Você já recebeu <span id="loveCount">1.000.000</span> "Eu Te Amo" do Kauã hoje! 💕
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            Feito com <span class="footer-heart">💗</span> para a pessoa mais especial do mundo
+        </p>
+        <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.3;">
+            Kauã & Alice — Para sempre ♾️
+        </p>
+    </footer>
+
+    <script>
+        // ===== FLOATING HEARTS =====
+        function createFloatingHearts() {
+            const container = document.getElementById('heartsBg');
+            const hearts = ['💗', '💕', '💖', '♥', '💘', '💝', '🩷', '🤍'];
+
+            for (let i = 0; i < 25; i++) {
+                const heart = document.createElement('span');
+                heart.className = 'heart-float';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                heart.style.animationDelay = (Math.random() * 20) + 's';
+                container.appendChild(heart);
+            }
+        }
+        createFloatingHearts();
+
+        // ===== DAY COUNTER =====
+        // 🗓️ ALTERE O ANO ABAIXO para o ano correto que vocês começaram a namorar
+        const startDate = new Date('2026-09-17T00:00:00');
+
+        function updateCounter() {
+            const now = new Date();
+            let diff = now - startDate;
+
+            // Calculate years, months, days, hours
+            let years = now.getFullYear() - startDate.getFullYear();
+            let months = now.getMonth() - startDate.getMonth();
+            let days = now.getDate() - startDate.getDate();
+            let hours = now.getHours() - startDate.getHours();
+
+            if (hours < 0) {
+                hours += 24;
+                days--;
+            }
+            if (days < 0) {
+                const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+                days += prevMonth.getDate();
+                months--;
+            }
+            if (months < 0) {
+                months += 12;
+                years--;
+            }
+
+            document.getElementById('years').textContent = years;
+            document.getElementById('months').textContent = months;
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+        }
+
+        updateCounter();
+        setInterval(updateCounter, 1000 * 60); // update every minute
+
+        // ===== SCROLL REVEAL =====
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ===== SPARKLE CURSOR EFFECT =====
+        let sparkleThrottle = 0;
+        document.addEventListener('mousemove', (e) => {
+            sparkleThrottle++;
+            if (sparkleThrottle % 4 !== 0) return;
+
+            const sparkle = document.createElement('span');
+            sparkle.className = 'sparkle';
+            sparkle.textContent = ['✨', '💗', '⭐', '💕', '🩷'][Math.floor(Math.random() * 5)];
+            sparkle.style.left = e.clientX + 'px';
+            sparkle.style.top = e.clientY + 'px';
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => sparkle.remove(), 1000);
+        });
+
+        // ===== SMOOTH NAV HIGHLIGHT =====
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = '';
+                if (link.getAttribute('href') === '#' + current) {
+                    link.style.color = 'var(--rosa)';
+                }
+            });
+        });
+
+        // ===== LOVE BURST BUTTON =====
+        let loveCounter = 1000000;
+        const spawnLoveBtn = document.getElementById('spawnLoveBtn');
+        const loveCountEl = document.getElementById('loveCount');
+
+        const lovePhrases = [
+            'Eu te amo, Alice! 💗',
+            'Eu te amo mil milhões! 💕',
+            'Eu te amo pra sempre! 💍',
+            'Eu te amo mais que tudo! ✨',
+            'Eu te amo meu amor todinho! 🥰',
+            'Eu te amo infinitamente! 💖',
+            'Eu te amo com toda minha alma! 🌹',
+            'Eu te amo daqui até a lua! 🌙',
+            'Eu te amo a cada segundo mais! ⏳',
+            'Eu te amo minha princesa! 👑',
+            'Eu te amo sem fim! 💞',
+            'Eu te amo tanto tanto tanto! 💓'
+        ];
+
+        if (spawnLoveBtn) {
+            spawnLoveBtn.addEventListener('click', (e) => {
+                loveCounter++;
+                if (loveCountEl) {
+                    loveCountEl.textContent = loveCounter.toLocaleString('pt-BR');
+                }
+
+                // Spawn floating love bubble at click coordinates
+                const bubble = document.createElement('div');
+                bubble.className = 'floating-love-bubble';
+                const phrase = lovePhrases[Math.floor(Math.random() * lovePhrases.length)];
+                bubble.textContent = phrase;
+                bubble.style.left = e.clientX + 'px';
+                bubble.style.top = e.clientY + 'px';
+                document.body.appendChild(bubble);
+
+                setTimeout(() => bubble.remove(), 2000);
+
+                // Spawn 3 extra sparkles
+                for (let i = 0; i < 3; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('span');
+                        heart.className = 'sparkle';
+                        heart.textContent = ['💗', '💕', '💖', '💘', '❤️', '✨'][Math.floor(Math.random() * 6)];
+                        heart.style.left = (e.clientX + (Math.random() * 80 - 40)) + 'px';
+                        heart.style.top = (e.clientY + (Math.random() * 60 - 30)) + 'px';
+                        heart.style.fontSize = (Math.random() * 16 + 14) + 'px';
+                        document.body.appendChild(heart);
+                        setTimeout(() => heart.remove(), 1000);
+                    }, i * 100);
+                }
+            });
+        }
+    </script>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <button class="lightbox-close" id="lightboxClose" title="Fechar">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" title="Foto anterior">&#8249;</button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" title="Próxima foto">&#8250;</button>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="Foto ampliada">
+            <div class="lightbox-caption">
+                <h3 id="lightboxTitle"></h3>
+                <p id="lightboxDesc"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== COISAS QUE AMO FLIP =====
+        function toggleReason(card) {
+            card.classList.toggle('flipped');
+        }
+
+        // ===== LIGHTBOX =====
+        const galleryItems = [
+            {
+                src: 'Nossa%20primeira%20conversa.jpeg',
+                title: 'Nossa Primeira Conversa',
+                desc: 'O dia em que tudo começou ✨'
+            },
+            {
+                src: 'eu%20tatuado%20alice.jpeg',
+                title: 'Eu Tatuado Alice',
+                desc: 'Minha tatuagem com seu nome 🌟'
+            },
+            {
+                src: 'tatuagem%20da%20alice.jpeg',
+                title: 'Tatuagem da Alice',
+                desc: 'Meu nome no seu braço 🌹'
+            },
+            {
+                src: 'sorriso%20da%20alice.jpeg',
+                title: 'Sorriso da Alice',
+                desc: 'Amo seu sorriso apaixonante 💗'
+            },
+            {
+                src: 'alice%20e%20filha.jpeg',
+                title: 'Alice e Filha',
+                desc: 'Os maiores amores da minha vida 💕'
+            }
+        ];
+
+        let currentLightboxIndex = 0;
+        const lightboxModal = document.getElementById('lightboxModal');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxTitle = document.getElementById('lightboxTitle');
+        const lightboxDesc = document.getElementById('lightboxDesc');
+
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            updateLightboxContent();
+            lightboxModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightboxModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function changeLightbox(step) {
+            currentLightboxIndex = (currentLightboxIndex + step + galleryItems.length) % galleryItems.length;
+            updateLightboxContent();
+        }
+
+        function updateLightboxContent() {
+            const item = galleryItems[currentLightboxIndex];
+            lightboxImg.src = item.src;
+            lightboxImg.alt = item.title;
+            lightboxTitle.textContent = item.title;
+            lightboxDesc.textContent = item.desc;
+        }
+
+        document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+        document.getElementById('lightboxPrev').addEventListener('click', (e) => { e.stopPropagation(); changeLightbox(-1); });
+        document.getElementById('lightboxNext').addEventListener('click', (e) => { e.stopPropagation(); changeLightbox(1); });
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightboxModal.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') changeLightbox(-1);
+            if (e.key === 'ArrowRight') changeLightbox(1);
+        });
+    </script>
+</body>
+</html>
